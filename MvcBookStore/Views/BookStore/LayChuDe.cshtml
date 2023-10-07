@@ -1,0 +1,15 @@
+﻿@using MvcBookStore.Models
+@model IEnumerable<CHUDE>
+<div class="title">CHỦ ĐỀ SÁCH</div>
+<ul class="list-group">
+    @foreach (var chude in Model)
+    {
+        //        ở đây ta sẽ cần chức năng filter sản phẩm theo chủ đề.Đó là lý do ta
+        //tạo một thẻ anchor mà khi click vào sẽ gọi chức năng load sản phẩm theo chủ đề
+        //(với mã chủ đề được đính kèm)
+        <a href="@Url.Action("SPTheoChuDe", "BookStore", new { id=chude.MaCD })"
+           class="list-group-item list-group-item-action">
+            @chude.TenChuDe
+        </a>
+    }
+</ul>
